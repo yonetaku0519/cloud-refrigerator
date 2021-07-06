@@ -1,0 +1,28 @@
+footer {
+    background-color : #bfd7ff;
+    text-align : center;
+}
+
+footer #footer_navi {
+    background-color : #e2fdff;
+    padding : 10px 0;
+}
+
+footer #footer_navi li {
+    display : inline;
+    border-left : solid 1px #333;
+    margin-left : 8px;
+    padding-left : 8px;
+    font-size : smaller;
+}
+
+footer #footer_navi li:last-child {
+    border-right : solid 1px #333;
+    padding : 0 8px;
+}
+
+footer small {
+    display : block;
+    padding : 8px;
+    color : #fff;
+}

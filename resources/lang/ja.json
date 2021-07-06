@@ -1,0 +1,20 @@
+{
+    "Register": "ユーザー登録",
+    "Name": "氏名",
+    "E-Mail Address": "メールアドレス",
+    "Password": "パスワード",
+    "Confirm Password": "パスワード (確認用)",
+    "Login": "ログイン",
+    "Logout": "ログアウト",
+    "Remember Me": "ログインしたままにする",
+    "Forgot Your Password?": "パスワードを忘れた方はこちら",
+    "Reset Password": "パスワード再設定",
+    "Send Password Reset Link": "パスワード再設定用のリンクを送る",
+    "Verify Your Email Address": "メールアドレス認証を行ってください",
+    "A fresh verification link has been sent to your email address.": "ユーザー登録の確認メールを送信しました。",
+    "Before proceeding, please check your email for a verification link.": "メールに記載されているリンクをクリックして、登録手続きを完了してください。",
+    "If you did not receive the email,": "メールが届かない場合、",
+    "click here to request another.": "こちらをクリックして再送信してください。",
+    "Please confirm your password before continuing.": "続行するにはパスワードを入力してください。"
+
+}
