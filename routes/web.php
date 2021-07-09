@@ -20,11 +20,29 @@ Auth::routes(['verify' => true]);
 
 Route::get('profile', function () {
     
-    
+    Route::group(['prefix' => 'users/{id}'],function() {
+        
+        Route::get('foods','FoodsContlloer',['only' => ['index']]);
+        
+        
+        
+    });
     
     
 })->middleware('verified');
 
+
+// メインページ（ユーザーの冷蔵庫を表示し、レシピを提案するページ）
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+
+
+
+
+
+
+
+
+
 
 

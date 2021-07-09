@@ -1,5 +1,5 @@
 html, body {
-    background-color: #fff;
+    background-color: #EAF3FF;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
@@ -47,6 +47,7 @@ html, body {
     font-size: 1.4rem;
     font-weight: bold;
     line-height: 2;
+    text-align: center;
 }
 
 @media screen and (min-width: 1000px)
@@ -63,6 +64,7 @@ html, body {
   }
 }
 
+
 .top-page-btn {
     display: inline-block;
     padding: 14px 20px;
@@ -77,6 +79,10 @@ html, body {
 
 .mt-5, .my-5 {
     margin-top: 3rem !important;
+}
+
+.text-center {
+    text-align: center !important;
 }
 
 
@@ -97,6 +103,320 @@ html, body {
 .m-b-md {
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 1000px) {
+  .application-about {
+      width: 90%;
+  }
+}
+.application-about {
+    border: 3px dashed #788bff;
+    width: 70%;
+    margin: 2% auto;
+    background: #fff;
+}
+
+.application-logo{
+    width: 150px;
+}
+
+.about-title-text {
+   color: #00CCCC;
+    font-weight: bold;
+    font-size: 1.8rem;
+    vertical-align: middle; 
+}
+
+.worries-title {
+    margin: 10% 0;
+    font-size: 1.5rem;
+    position: relative;
+    font-weight: bold;
+    text-shadow: 0 0 2px white;
+}
+@media screen and (max-width: 1000px)
+{
+  .worries-title {
+      margin: 10% 0;
+  }
+}
+.worries-img-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.worries-img {
+  width:500px;
+}
+
+.worries-area .worries-list {
+    margin: 30% auto;
+    width: 80%;
+}
+
+.customer-worries {
+  background-color: #e2fdff;
+}
+
+.worries-area .worries-item {
+    position: relative;
+    padding-left: 1.8em;
+    line-height: 1.4;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.worries-area .worries-list li {
+    list-style: none;
+    -webkit-text-decoration: underline solid red;
+    text-decoration: underline solid red;
+    margin: 5% 0;
+}
+
+.worries-area .fadein-left.active {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.fadein.active {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+
+@media screen and (max-width: 1000px){
+  .settle-title {
+      margin: 5% auto;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-bottom: 3px solid red;
+      width: 90%;
+  }
+}
+
+.settle-title {
+    margin: 5% auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 3px solid red;
+    width: 80%;
+}
+
+.set-title-text {
+    font-weight: bold;
+    font-size:1.8rem;
+    vertical-align: middle;
+}
+
+
+.active {
+    opacity: 1.0;
+}
+
+.fadein {
+    opacity: 0;
+    -webkit-transform: translate(0, 100px);
+    transform: translate(0, 100px);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.div {
+    display: block;
+}
+
+.container-field {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto !important;
+}
+
+.mr-auto, .mx-auto {
+    margin-right: auto !important;
+}
+.mt-3, .my-3 {
+    margin-top: 1rem !important;
+}
+
+@media (min-width: 992px){
+  .col-lg-3 {
+      -webkit-box-flex: 0;
+      flex: 0 0 25%;
+      max-width: 25%;
+  }
+}
+
+@media (min-width: 768px){
+  .col-md-10 {
+      -webkit-box-flex: 0;
+      flex: 0 0 83.3333333333%;
+      max-width: 83.3333333333%;
+  }
+}
+
+
+
+.settle-area .settle .settle-img {
+    height: 200px;
+    width: 50%;
+}
+
+.settle-area .settle {
+    background: #fff;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 12%);
+    height: 100%;
+}
+
+.settle-area .settle .settle-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5% 0;
+}
+
+.pt-4, .py-4 {
+    padding-top: 1.5rem !important;
+}
+
+.settle-area .settle .settle-description {
+    line-height: 1.5;
+    opacity: 0.8;
+    padding: 5%;
+}
+
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+.step-area-title {
+    margin: 5% auto;
+    font-size: 1.5rem;
+    color: #00CCCC;
+    font-weight: bold;
+    border-bottom: 3px solid #00CCCC;
+    width: 50%;
+}
+
+.active {
+    opacity: 1.0;
+}
+
+
+.step-area {
+    margin: 5% 0%;
+}
+
+.step-img {
+  width:80%;
+}
+
+.step-area .step {
+    background: #fff;
+    width: 80%;
+    margin: auto;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 12%);
+    height: 100%;
+}
+
+.step-area .step-title {
+    color: #00CCCC;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding-top: 5%;
+    border-bottom: 3px solid #00CCCC;
+    width: 20%;
+    margin: 0 auto;
+}
+
+.step-area .step-copy {
+    font-size: 1.3rem;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.step-area .step-description {
+    padding: 5%;
+    opacity: 0.8;
+}
+
+
+.wish-title {
+    margin: 10% 0;
+    font-size: 1.5rem;
+    position: relative;
+    font-weight: bold;
+    text-shadow: 0 0 2px white;
+}
+@media screen and (max-width: 1000px)
+{
+  .wish-title {
+      margin: 10% 0;
+  }
+}
+.wish-img-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wish-img {
+  width:500px;
+}
+
+.customer-wish {
+  background-color: #fff;
+}
+
+.wish-text-area{
+    margin: 30% auto;
+    width: 80%;
+}
+
+.wish-area .wish-item {
+    position: relative;
+    padding-left: 1.8em;
+    line-height: 1.4;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.wish-area .wish-list li {
+    list-style: none;
+    -webkit-text-decoration: underline solid red;
+    text-decoration: underline solid red;
+    margin: 5% 0;
+}
+
+.wish-area .fadein-left.active {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+
+
+
+
+
+
+
+
+
 
 .wrapper {
   height: 100%;
