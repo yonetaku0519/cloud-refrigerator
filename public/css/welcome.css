@@ -273,7 +273,7 @@ html, body {
 
 .settle-area .settle .settle-img {
     height: 200px;
-    width: 50%;
+    width: 180px;
 }
 
 .settle-area .settle {
@@ -407,14 +407,6 @@ html, body {
     -webkit-transform: translateX(0);
     transform: translateX(0);
 }
-
-
-
-
-
-
-
-
 
 
 
