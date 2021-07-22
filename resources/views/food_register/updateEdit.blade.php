@@ -1,12 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="row">
-        <aside class="col-md-4">
-            {{-- 冷蔵庫のイラスト --}}
-            
-            <img src="{{ asset('images/phone_refrigerator.jpg') }}" class="settle-img" style="position: center;">
-            
+        <aside class="col-sm-4">
+          @if($storing_id === 1)
+            {{-- 冷蔵庫(冷蔵室)のイラスト --}}
+            <img src="{{ asset('images/refrigerator_cool.jpg') }}" class="settle-img" style="display: block;margin: 10px 10px 0 auto;">
+          @elseif($storing_id === 2)
+            {{-- 冷蔵庫(冷凍室)のイラスト --}}
+            <img src="{{ asset('images/refrigerator_frozen.jpg') }}" class="settle-img" style="display: block;margin: 10px 10px 0 auto;">
+          @elseif($storing_id === 3)
+            {{-- 冷蔵庫(野菜室)のイラスト --}}
+            <img src="{{ asset('images/refrigerator_vegetables.jpg') }}" class="settle-img" style="display: block;margin: 10px 10px 0 auto;">
+          @endif
         </aside>
         <div class="col-md-8">
             {{-- フォーム送信画面 --}}
@@ -16,7 +23,7 @@
                   
                   @foreach($food as $foodDetail)      <!-- ここで保存場所毎の配列にする -->
                       
-                    {!! Form::open(['action' => 'FoodsController@foodRegister']) !!}
+                    {!! Form::open(['action' => 'FoodsController@updateRun']) !!}
                     <div class="form-group" >
                         <div class = "form-inline">
                             <label for="name" class = "col-sm-3">{!! Form::label('name','食材名') !!}</label>
@@ -42,6 +49,15 @@
                                 {{ Form::text('note', $foodDetail->note,['class' =>'form-control']) }}
                             </div>
                         </div>
+                        <div class = "form-inline">
+                            <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存場所') !!}</label>
+                            <div class="col-sm-9">
+                                {{ Form::select('storing_id',['1' => '冷蔵', '2' => '冷凍', '3' => '野菜室'],$storing_id,['class' =>'form-control']) }}
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" value="{{$foodDetail->id}}"/>
+                        
+                        
                         {!! Form::submit('食材情報の更新', ['class' => 'btn btn-primary btn-lg','style' => 'display: block;margin: 10px 10px 0 auto;']) !!}
                         {!! Form::close() !!}
                         
@@ -50,7 +66,8 @@
                   @endforeach
                   
             @endif
-            <a href="{!! route('food.update',[],) !!}" class = "btn btn-secondary btn-lg" style="display: block;margin: 10px 10px 0 auto; width:10%; color:white;">戻る</a>
+            <!--  戻るボタン（更新タブに戻る）  -->
+            <a href="{!! route('food.update',['id' => 1],) !!}" class = "btn btn-secondary btn-lg" style="display: block;margin: 10px 10px 0 auto; width:10%; color:white;">戻る</a>
         </div>
     </div>
 @endsection
