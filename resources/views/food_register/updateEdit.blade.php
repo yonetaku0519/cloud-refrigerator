@@ -67,7 +67,7 @@
                   
             @endif
             <!--  戻るボタン（更新タブに戻る）  -->
-            <a href="{!! route('food.update',['id' => 1],) !!}" class = "btn btn-secondary btn-lg" style="display: block;margin: 10px 10px 0 auto; width:10%; color:white;">戻る</a>
+            <a href="{!! route('food.update',['id' => $storing_id],) !!}" class = "btn btn-secondary btn-lg" style="display: block;margin: 10px 10px 0 auto; width:10%; color:white;">戻る</a>
         </div>
     </div>
 @endsection

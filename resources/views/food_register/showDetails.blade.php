@@ -3,11 +3,18 @@
 @section('content')
     <div class="row">
         <aside class="col-sm-4">
-            {{-- 冷蔵庫のイラスト --}}
-            
-            <img src="{{ asset('images/phone_refrigerator.jpg') }}" class="settle-img">
-            
+          @if($id === "1")
+            {{-- 冷蔵庫(冷蔵室)のイラスト --}}
+            <img src="{{ asset('images/refrigerator_cool.jpg') }}" class="settle-img" style="display: block;margin: 10px 10px 0 auto;">
+          @elseif($id === "2")
+            {{-- 冷蔵庫(冷凍室)のイラスト --}}
+            <img src="{{ asset('images/refrigerator_frozen.jpg') }}" class="settle-img" style="display: block;margin: 10px 10px 0 auto;">
+          @elseif($id === "3")
+            {{-- 冷蔵庫(野菜室)のイラスト --}}
+            <img src="{{ asset('images/refrigerator_vegetables.jpg') }}" class="settle-img" style="display: block;margin: 10px 10px 0 auto;">
+          @endif
         </aside>
+        
         <div class="col-sm-8">
             {{-- タブ --}}
             @include('food_register.navtabs')
@@ -27,19 +34,18 @@
                     </tr>
                   </thead>
                   
-                  @foreach($foods as $foodsLocation)      <!-- ここで保存場所毎の配列にする -->
+                  @foreach($foods as $food)      <!-- ここで保存場所毎の配列にする -->
                       
-                      @foreach($foodsLocation as $food)       <!-- ここから要素を取り出す-->
                         <tbody>
                           <td scope="row">{{  $food->name  }}</th>
                           <td scope="row">{{  $food->amount  }}</th>
                           <td scope="row">{{  $food->freshness_date  }}</th>
                           <td scope="row">{{  $food->note  }}</th>
                         </tbody>
-                      @endforeach
                       
                   @endforeach
-                  
+                  {{  $foods->links() }}
+              
                 </table>
           @endif
           
@@ -77,6 +83,10 @@
                         <div class="col-sm-9">
                             {{ Form::text('note', null,['class' =>'form-control']) }}
                         </div>
+                        <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存場所') !!}</label>
+                        <div class="col-sm-9">
+                            {{ Form::select('storing_id',['1' => '冷蔵', '2' => '冷凍', '3' => '野菜室'],['class' =>'form-control']) }}
+                        </div>
                         {!! Form::submit('冷蔵庫に追加', ['class' => 'btn btn-primary btn-lg','style' => 'display: block;margin: 10px 10px 0 auto;']) !!}
                         {!! Form::close() !!}
                     </div>
@@ -84,6 +94,18 @@
               </div>
             </div>
           </div>
+          
+          <!-- 保存場所毎のリンクボタン群 -->
+          <div class = "button-group">
+            <a href="{{ route('food.showDetails', ['id' => 1]) }}" class = "btn btn-outline-primary btn-lg">冷蔵ドアを開ける</a>
+            <a href="{{ route('food.showDetails', ['id' => 2]) }}" class = "btn btn-outline-info btn-lg">冷凍ドアを開ける</a>
+            <a href="{{ route('food.showDetails', ['id' => 3]) }}" class = "btn btn-outline-success btn-lg">野菜室を開ける</a>
+          </div>
+        
+        <!-- 画面右のタブレイアウトの閉じdiv -->
         </div>
+        
+    <!-- rowの閉じdiv -->    
     </div>
+    
 @endsection
