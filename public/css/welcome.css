@@ -171,6 +171,13 @@ html, body {
     text-decoration: underline solid red;
     margin: 5% 0;
 }
+.worries-area .fadein-left {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
 
 .worries-area .fadein-left.active {
     opacity: 1;

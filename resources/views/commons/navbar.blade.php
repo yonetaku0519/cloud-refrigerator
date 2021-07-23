@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light " style="background-color: #5465ff;">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}" style="color:#ffffff;">
+        <a class="navbar-brand" href="{{ url('/home') }}" style="color:#ffffff;">
             {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler"  style="border-color: #ffffff;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -21,6 +21,15 @@
                         </li>
                     @endif
                 @else
+                    {{-- 登録/更新へのリンク --}}
+                    <li class="nav-item"><i class="fas fa-folder-plus"></i>{!! link_to_route('food.showDetails', '登録/更新',['id' => 1], ['class' => 'nav-link']) !!}</li>
+                    
+                    {{-- 買い物リストへのリンク --}}
+                    <li class="nav-item"><i class="fas fa-shopping-cart"></i>{!! link_to_route('food.display', '買い物リスト',[], ['class' => 'nav-link']) !!}</li>
+                    
+                    {{-- 机に広げるへのリンク --}}
+                    <li class="nav-item"><i class="fas fa-people-carry"></i>{!! link_to_route('food.display', '机に広げる',[], ['class' => 'nav-link']) !!}</li>
+                    
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle"　style="color:#ffffff;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -38,6 +47,8 @@
                             </form>
                         </div>
                     </li>
+                    
+                    
                 @endguest
             </ul>
         </div>
