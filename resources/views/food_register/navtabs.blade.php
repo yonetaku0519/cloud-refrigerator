@@ -8,7 +8,7 @@
     
     </li　class = "nav-item">
         <a href="{!! route('food.update',['id' => 1],) !!}" class="nav-link {{ Request::routeIs('food.update') ? 'active' : '' }}">
-            更新
+            更新/削除
         </a>
     </li>
 </ul>

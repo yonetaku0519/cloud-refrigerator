@@ -61,6 +61,12 @@
                         {!! Form::submit('食材情報の更新', ['class' => 'btn btn-primary btn-lg','style' => 'display: block;margin: 10px 10px 0 auto;']) !!}
                         {!! Form::close() !!}
                         
+                        <!--　削除ボタン　-->
+                        {!! Form::open(['action' => 'FoodsController@destroy']) !!}
+                            <input type="hidden" name="id" value="{{$foodDetail->id}}"/>
+                            <input type="hidden" name="storing_id" value="{{$foodDetail->storing_id}}"/>
+                            {!! Form::submit('消費', ['class' => 'btn btn-danger btn-lg','style' => 'display: block;margin: 10px 10px 0 auto;']) !!}
+                        {!! Form::close() !!}
                     </div>
             
                   @endforeach

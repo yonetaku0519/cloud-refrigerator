@@ -144,6 +144,9 @@ class FoodsController extends Controller
             // 引数のidを使って、更新する食材のレコードを取得する
             $food = $user->foodOneRecord($id);
             
+            
+            // dd($food);
+            
             $data = [
                 'user' => $user,
                 'food' => $food,
@@ -185,6 +188,15 @@ class FoodsController extends Controller
         }
         return redirect()->route('food.update',['id' => $request->storing_id]);
         
+    }
+    
+    public function destroy(Request $request) {
+        // idの値で食材を検索して取得
+        $food = Food::findOrFail($request->id);
+        // 食材を削除
+        $food->delete();
+        // 前のページへ戻る
+        return redirect()->route('food.update',['id' => $request->storing_id]);    
     }
     
 }
