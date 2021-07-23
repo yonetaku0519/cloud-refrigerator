@@ -10,6 +10,7 @@ class Food extends Model
 {
     use SoftDeletes;
     
+    
     // Userモデルとの関係
     public function user() {
         

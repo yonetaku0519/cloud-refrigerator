@@ -52,4 +52,86 @@ class User extends Authenticatable  implements MustVerifyEmail
     {
         $this->notify(new CustomResetPassword($token));
     }
+    
+    
+    // Foodsテーブルとの関係
+    public function foods() {
+        
+        return $this->hasMany(Food::class);
+        
+    }
+    
+    public function loadRerationshipCounts() {
+        
+        $this->loadCount(['foods']);
+    }
+    
+    
+    // Foodテーブルから保存場所毎のデータを配列として返す。
+    public function foodstuff($id) {                        // storingsテーブルのidを引数として持っている
+        
+        $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->where('status',1)                     // 冷蔵庫に登録済を表す。
+                    ->where('storing_id', $id)              // 保存されている場所（引数）
+                    ->orderBy('freshness_date', 'ASC')
+                    ->paginate(10);                             // ここで受け取っている
+                    // dd($result);
+         return $result;
+        
+    }
+    
+    // Foodテーブルから保存場所毎のデータを配列として返す。
+    public function foodOnDesk() {                        // storingsテーブルのidを引数として持っている
+        
+        $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->where('status',1)                     // 冷蔵庫に登録済を表す。
+                    ->orderBy('freshness_date', 'ASC')
+                    ->paginate(10);                                // ここで受け取っている
+                    
+                    
+         return $result;
+        
+    }
+    
+    public function storeToRefrigerator(Request $request) {
+        
+        
+        $food = new Food;
+        $food->user_id = $request->user_id;
+        $food->category_id = $request->category_id;
+        $food->storing_id = $request->storing_id;
+        $food->name = $request->name;
+        $food->amount = $request->amount;
+        $food->freshness_date = $request->freshness_date;
+        $food->note = $request->note;
+        $food->status = $request->staus;
+        $food->save();
+        
+        return back();
+        
+    }
+    
+    public function foodOneRecord($id) {
+        
+                $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->where('id',$id)                     // idで検索
+                    ->get();
+                    
+         return $result;
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
