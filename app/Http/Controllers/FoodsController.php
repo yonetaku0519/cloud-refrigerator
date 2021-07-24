@@ -93,7 +93,7 @@ class FoodsController extends Controller
                 'name' => 'required|max:255',
                 'amount' => 'required|max:255',
                 'freshness_date' => 'required',
-                'note' => 'required|max:255'
+                'note' => 'max:255'
         ]);
         
         if (\Auth::check()) { // 認証済みの場合
@@ -167,7 +167,7 @@ class FoodsController extends Controller
                 'name' => 'required|max:255',
                 'amount' => 'required|max:255',
                 'freshness_date' => 'required',
-                'note' => 'required|max:255'
+                'note' => 'max:255'
         ]);
         
          if (\Auth::check()) { // 認証済みの場合
