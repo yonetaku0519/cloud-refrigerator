@@ -125,6 +125,18 @@ class User extends Authenticatable  implements MustVerifyEmail
     }
     
     
+    public function shoppingList() {
+        
+        $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->where('status',2)                     // 買い物リストに登録されていることを表す。
+                    ->get();                                 // ここで受け取っている
+                    // dd($result);
+         return $result;
+        
+    }
+    
+    
     
     
     

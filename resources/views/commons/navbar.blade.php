@@ -3,9 +3,7 @@
         <a class="navbar-brand" href="{{ url('/home') }}" style="color:#ffffff;">
             {{ config('app.name', 'Laravel') }}
         </a>
-        <button class="navbar-toggler"  style="border-color: #ffffff;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Right Side Of Navbar -->
@@ -22,23 +20,24 @@
                     @endif
                 @else
                     {{-- 登録/更新へのリンク --}}
-                    <li class="nav-item" 　style="color:#ffffff;" ><p><i class="fas fa-folder-plus fa-2x faa-bounce animated"></i>{!! link_to_route('food.showDetails', '登録/更新',['id' => 1], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!} </p></li>
+                    <li class="nav-item" ><i class="fas fa-folder-plus fa-2x faa-bounce animated" style = "color: white;"></i>{!! link_to_route('food.showDetails', '登録/更新',['id' => 1], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
                     
                     {{-- 買い物リストへのリンク --}}
-                    <li class="nav-item" 　style="color:#ffffff;" ><i class="fas fa-shopping-cart fa-2x faa-passing animated"></i>{!! link_to_route('shopping_list', '買い物リスト',[], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
+                    <li class="nav-item"  ><i class="fas fa-shopping-cart fa-2x faa-passing animated" style = "color: white;"></i>{!! link_to_route('shopping_list', '買い物リスト',[], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
                     
                     {{-- 机に広げるへのリンク --}}
-                    <li class="nav-item" 　style="color:#ffffff;" ><i class="fas fa-people-carry fa-2x faa-horizontal animated"></i>{!! link_to_route('food.display', '机に広げる',[], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
+                    <li class="nav-item"  ><i class="fas fa-people-carry fa-2x faa-horizontal animated" style = "color: white;"></i>{!! link_to_route('food.display', '机に広げる',[], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
                     
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" >
+                        <i class="fas fa-user fa-2x faa-float animated" style = "color: white;"></i>
                         <a id="navbarDropdown" class="nav-link dropdown-toggle"　style="color:#ffffff;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="background-color:#5465ff">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="background-color:white">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();" style="color:#ffffff; background-color:#5465ff">
+                                             document.getElementById('logout-form').submit();" style="color:#ffffff; background-color:#5465ff;">
                                 {{ __('Logout') }}
                             </a>
 
@@ -47,7 +46,6 @@
                             </form>
                         </div>
                     </li>
-                    
                     
                 @endguest
             </ul>

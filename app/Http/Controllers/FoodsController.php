@@ -73,17 +73,15 @@ class FoodsController extends Controller
             
             $foods = $user->foodstuff($id);
             
-            
             $data = [
                 'user' => $user,
                 'foods' => $foods,
                 'id' => $id,
             ];
-            
-            
             // デバック用
             // dd($data);
         }
+        
         return view('food_register/showDetails', $data);
     }
     
@@ -99,7 +97,7 @@ class FoodsController extends Controller
         if (\Auth::check()) { // 認証済みの場合
             // 認証済みユーザを取得
             $user = \Auth::user();
-        // dd($user);
+            // dd($user);
             $food = new Food;
             $food->user_id = $user->id;
             $food->category_id = 1;                     // categoriesテーブルは今後の拡張機能用なので、2021年7月時点では規定値の１で登録しておく
@@ -116,7 +114,7 @@ class FoodsController extends Controller
         
     }
     
-        public function updateTable($id) {
+    public function updateTable($id) {
         
         $data = [];
         if (\Auth::check()) { // 認証済みの場合
@@ -143,7 +141,6 @@ class FoodsController extends Controller
             $user = \Auth::user();
             // 引数のidを使って、更新する食材のレコードを取得する
             $food = $user->foodOneRecord($id);
-            
             
             // dd($food);
             
@@ -174,7 +171,7 @@ class FoodsController extends Controller
             // 認証済みユーザを取得
             $user = \Auth::user();
             $food = Food::findOrFail($request->id); // 更新対象の食材レコードの取得
-            
+        
             $food->user_id = $user->id;
             $food->category_id = 1;
             $food->storing_id = $request->storing_id;
@@ -198,5 +195,35 @@ class FoodsController extends Controller
         // 前のページへ戻る
         return redirect()->route('food.update',['id' => $request->storing_id]);    
     }
+    
+    
+    public function showShoppingList() {
+        
+        $data = [];
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            // Storingsテーブル情報の取得
+            $storings = Storing::all();
+            $foods = $user->shoppingList();
+            
+            foreach($foods as $food) {
+                $id = $food->storing_id;
+                $name = Storing::find($id)->name;
+                // dd($name);
+            }
+            
+            $data = [
+                'user' => $user,
+                'foods' => $foods,
+            ];
+            // デバック用
+            //  dd($data);
+        }
+        return view('shopping_list/register_shopping_list', $data);
+        
+    }
+    
+    
     
 }
