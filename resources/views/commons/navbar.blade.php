@@ -22,13 +22,13 @@
                     @endif
                 @else
                     {{-- 登録/更新へのリンク --}}
-                    <li class="nav-item"><i class="fas fa-folder-plus"></i>{!! link_to_route('food.showDetails', '登録/更新',['id' => 1], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item" 　style="color:#ffffff;" ><p><i class="fas fa-folder-plus fa-2x faa-bounce animated"></i>{!! link_to_route('food.showDetails', '登録/更新',['id' => 1], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!} </p></li>
                     
                     {{-- 買い物リストへのリンク --}}
-                    <li class="nav-item"><i class="fas fa-shopping-cart"></i>{!! link_to_route('food.display', '買い物リスト',[], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item" 　style="color:#ffffff;" ><i class="fas fa-shopping-cart fa-2x faa-passing animated"></i>{!! link_to_route('shopping_list', '買い物リスト',[], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
                     
                     {{-- 机に広げるへのリンク --}}
-                    <li class="nav-item"><i class="fas fa-people-carry"></i>{!! link_to_route('food.display', '机に広げる',[], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item" 　style="color:#ffffff;" ><i class="fas fa-people-carry fa-2x faa-horizontal animated"></i>{!! link_to_route('food.display', '机に広げる',[], ['class' => 'nav-link', 'style' => 'color:#ffffff;']) !!}</li>
                     
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle"　style="color:#ffffff;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

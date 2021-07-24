@@ -49,15 +49,18 @@
                 </table>
           @endif
           
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
           食材登録
           </button>
+          <br><br>
+            
           <!-- Modalの中身 -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">食材登録</h5></h5>
+                  <h5 class="modal-title" id="exampleModalLabel">食材登録</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
