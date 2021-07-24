@@ -38,8 +38,9 @@ Route::post('hoge','FoodsController@updateRun')->name('food.updateRun')->middlew
 Route::post('delete','FoodsController@destroy')->name('food.delete')->middleware('verified');         // 食材のソフトデリート
 
 // 買い物リスト画面
-Route::get('register_shopping_list', 'FoodsController@showList')->name('register.shopping_list');
-Route::get('check_shopping_list', 'FoodsController@check')->name('check.shopping_list');
+Route::get('register_shopping_list', 'FoodsController@showShoppingList')->name('shopping_list');
+Route::post('hogehogehoge','FoodsController@shoppingListRegister')->name('shopping_list.register')->middleware('verified');;         // Modalから買い物リストに新規登録するルート
+Route::get('check_shopping_list', 'FoodsController@check')->name('go_shopping');
 
 
 
