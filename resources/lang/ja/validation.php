@@ -150,6 +150,9 @@ return [
         "password" => "パスワード",
         "password_confirmation" => "パスワード(確認用)",
         "email" => "メールアドレス",
+        "amount" => "量",
+        "freshness_date" => "賞味期限",
+        "note" => "備考",
     ],
 
 ];
