@@ -7,7 +7,7 @@
     </li>
     
     </li　class = "nav-item">
-        <a href="{!! route('go_shopping',[],) !!}" class="nav-link {{ Request::routeIs('go_shopping') ? 'active' : '' }}">
+        <a href="{!! route('check_shopping_list',[],) !!}" class="nav-link {{ Request::routeIs('check_shopping_list') ? 'active' : '' }}">
             買い物中
         </a>
     </li>

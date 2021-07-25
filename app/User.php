@@ -124,12 +124,19 @@ class User extends Authenticatable  implements MustVerifyEmail
         
     }
     
+    public function foodInBasket() {
+        $result = $this->foods()
+                    ->where('status',3)
+                    ->get();
+        return $result;
+    }
     
     public function shoppingList() {
         
         $result = $this->foods()
                     ->whereNull('deleted_at')
                     ->where('status',2)                     // 買い物リストに登録されていることを表す。
+                    ->orWhere('status',3)                     // 買い物リストで買い物カゴに登録されていることを表す。
                     ->get();                                 // ここで受け取っている
                     // dd($result);
          return $result;

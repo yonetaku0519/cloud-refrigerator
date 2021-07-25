@@ -40,9 +40,13 @@ Route::post('delete','FoodsController@destroy')->name('food.delete')->middleware
 // 買い物リスト画面
 Route::get('register_shopping_list', 'FoodsController@showShoppingList')->name('shopping_list');
 Route::post('hogehogehoge','FoodsController@shoppingListRegister')->name('shopping_list.register')->middleware('verified');;         // Modalから買い物リストに新規登録するルート
-Route::get('check_shopping_list', 'FoodsController@check')->name('go_shopping');
-
-
+Route::get('check_shopping_list', 'FoodsController@shoppingListCheck')->name('check_shopping_list');
+Route::get('/update_shopping_list/{id}','FoodsController@shoppingListUpdateEdit')->name('update_shopping_list')->middleware('verified');               // Updateするためのフォームにデータを投げる
+Route::get('/freshness_date_register/{id}','FoodsController@freshnessDateRegisterEdit')->name('freshness_date_register')->middleware('verified');               // 賞味期限を登録するためのフォームにデータを投げる
+Route::post('hogehogehogehoge','FoodsController@shoppingListUpdateRun')->name('updateRun_shopping_list')->middleware('verified');;              // データを更新して、冷蔵庫の更新タブに戻る
+Route::post('hogehogehogehogehoge','FoodsController@shoppingBasketRegister')->name('shopping_basket.register')->middleware('verified');;         // Modalから買い物リストに登録済の食材をカゴに入れたことにする
+Route::post('delete','FoodsController@shoppingListDestroy')->name('shopping_list.delete')->middleware('verified');         // 食材のソフトデリート
+Route::get('shopping_complete', 'FoodsController@shoppingComplete')->name('shopping_complete');
 
 
 

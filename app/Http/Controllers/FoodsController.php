@@ -210,7 +210,7 @@ class FoodsController extends Controller
             foreach($foods as $food) {
                 $id = $food->storing_id;
                 $name = Storing::find($id)->name;
-                // dd($name);
+                $food->storing_id = $name;
             }
             
             $data = [
@@ -218,11 +218,180 @@ class FoodsController extends Controller
                 'foods' => $foods,
             ];
             // デバック用
-            //  dd($data);
+            //   dd($data);
         }
         return view('shopping_list/register_shopping_list', $data);
         
     }
+    
+    public function shoppingListRegister(Request $request) {
+        $request->validate([
+                'name' => 'required|max:255',
+                'amount' => 'required|max:255',
+                'note' => 'max:255'
+        ]);
+        
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            // dd($user);
+            $food = new Food;
+            $food->user_id = $user->id;
+            $food->category_id = 1;                     // categoriesテーブルは今後の拡張機能用なので、2021年7月時点では規定値の１で登録しておく
+            $food->storing_id = $request->storing_id;
+            $food->name = $request->name;
+            $food->amount = $request->amount;
+            $food->note = $request->note;
+            $food->status = 2;                          // 買い物リストに登録されていることを表す。
+            $food->save();
+        
+        }
+        return back();
+    }
+    
+    public function shoppingListCheck() {
+        
+        $data = [];
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            // Storingsテーブル情報の取得
+            $storings = Storing::all();
+            $foods = $user->shoppingList();
+            
+            foreach($foods as $food) {
+                $id = $food->storing_id;
+                $name = Storing::find($id)->name;
+                $food->storing_id = $name;
+            }
+            
+            $data = [
+                'user' => $user,
+                'foods' => $foods,
+            ];
+            // デバック用
+            //   dd($data);
+        }
+        return view('shopping_list/check_shopping_list', $data);
+        
+        
+    }
+    
+    public function shoppingListUpdateEdit($id) {
+        $data = [];
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            // 引数のidを使って、更新する食材のレコードを取得する
+            $food = $user->foodOneRecord($id);
+            
+            
+            $data = [
+                'user' => $user,
+                'food' => $food,
+                'id' => $id,
+                'storing_id' => $food[0]->storing_id,
+                
+            ];
+            // デバック用
+            // dd($food);
+        }
+        return view('shopping_list/update_shopping_list', $data);
+    }
+    
+    public function freshnessDateRegisterEdit($id) {
+        $data = [];
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            // 引数のidを使って、更新する食材のレコードを取得する
+            $food = $user->foodOneRecord($id);
+            // dd($food);
+            
+            $data = [
+                'user' => $user,
+                'food' => $food,
+                'id' => $id,
+            ];
+            // デバック用
+            // dd($food);
+        }
+        return view('shopping_list/freshness_date_register', $data);
+    }
+    
+    public function shoppingListUpdateRun(Request $request) {
+        $request->validate([
+                'name' => 'required|max:255',
+                'amount' => 'required|max:255',
+                'note' => 'max:255',
+        ]);
+        
+         if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            $food = Food::findOrFail($request->id); // 更新対象の食材レコードの取得
+        
+            $food->user_id = $user->id;
+            $food->category_id = 1;
+            $food->storing_id = $request->storing_id;
+            $food->name = $request->name;
+            $food->amount = $request->amount;
+            $food->freshness_date = null;
+            $food->note = $request->note;
+            $food->status = 2;                        // 買い物リストに登録されていることを表す。
+            $food->save();
+        
+        }
+        return redirect()->route('check_shopping_list');
+    }
+    
+    public function shoppingBasketRegister(Request $request) {
+        $request->validate([
+                'freshness_date' => 'required',
+        ]);
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            $food = Food::findOrFail($request->id); // 更新対象の食材レコードの取得
+            $food->freshness_date = $request->freshness_date;
+            $food->status = 3;                        // 買い物カゴに登録されていることを表す。
+            // dd($food);
+            $food->save();
+        
+        }
+        
+        return redirect()->route('check_shopping_list');
+        
+    }
+    
+    public function shoppingListDestroy(Request $request) {
+        // idの値で食材を検索して取得
+        $food = Food::findOrFail($request->id);
+        // 食材を削除
+        $food->delete();
+        // 前のページへ戻る
+        return redirect()->route('check_shopping_list'); 
+    }
+    
+    public function shoppingComplete() {
+        
+        if (\Auth::check()) { // 認証済みの場合
+            // 認証済みユーザを取得
+            $user = \Auth::user();
+            $foods = $user->foodInBasket();             // status=3の食材を全て取得
+            // dd($foods);
+            foreach($foods as $food) {
+                
+                $food->status = 1;
+                $food->save();    
+            }
+            
+            return redirect()->route('check_shopping_list');
+        
+        }
+    }
+    
+    
     
     
     

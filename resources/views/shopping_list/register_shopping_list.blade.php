@@ -21,6 +21,7 @@
                     <tr>
                       <th scope="col">食品名</th>
                       <th scope="col">量</th>
+                      <th scope="col">保存予定場所</th>
                       <th scope="col">備考</th>
                     </tr>
                   </thead>
@@ -30,6 +31,7 @@
                         <tbody>
                           <td scope="row">{{  $food->name  }}</th>
                           <td scope="row">{{  $food->amount  }}</th>
+                          <td scope="row">{{  $food->storing_id  }}</th>
                           <td scope="row">{{  $food->note  }}</th>
                         </tbody>
                       
@@ -68,7 +70,7 @@
                         <div class="col-sm-9">
                             {{ Form::text('note', null,['class' =>'form-control']) }}
                         </div>
-                        <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存場所') !!}</label>
+                        <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存予定場所') !!}</label>
                         <div class="col-sm-9">
                             {{ Form::select('storing_id',['1' => '冷蔵', '2' => '冷凍', '3' => '野菜室'],['class' =>'form-control']) }}
                             
