@@ -33,7 +33,7 @@
                         </div>
                         <div class = "form-inline">
                             <label for="amount" class = "col-sm-3">{!! Form::label('amount','量') !!}</label>
-                            <div class="col-sm-9"　style="width:80%">
+                            <div class="col-sm-9">
                                 {{ Form::text('amount', $foodDetail->amount,['class' =>'form-control']) }}
                             </div>
                         </div>
