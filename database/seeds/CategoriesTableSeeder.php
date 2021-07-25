@@ -9,22 +9,22 @@ class CategoriesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        DB::table('categories')->insert([
-            'name' => '魚',
-            'created_at' => '2021-7-16',
-            'updated_at' => '2021-7-16',
-        ]);
-        DB::table('categories')->insert([
-            'name' => '肉',
-            'created_at' => '2021-7-16',
-            'updated_at' => '2021-7-16',
-        ]);
-        DB::table('categories')->insert([
-            'name' => '野菜',
-            'created_at' => '2021-7-16',
-            'updated_at' => '2021-7-16',
-        ]);
-    }
+    // public function run()
+    // {
+    //     DB::table('categories')->insert([
+    //         'name' => '魚',
+    //         'created_at' => '2021-7-16',
+    //         'updated_at' => '2021-7-16',
+    //     ]);
+    //     DB::table('categories')->insert([
+    //         'name' => '肉',
+    //         'created_at' => '2021-7-16',
+    //         'updated_at' => '2021-7-16',
+    //     ]);
+    //     DB::table('categories')->insert([
+    //         'name' => '野菜',
+    //         'created_at' => '2021-7-16',
+    //         'updated_at' => '2021-7-16',
+    //     ]);
+    // }
 }
