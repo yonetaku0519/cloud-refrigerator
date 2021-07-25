@@ -49,7 +49,8 @@ Route::post('hogehogehogehogehoge','FoodsController@shoppingBasketRegister')->na
 Route::post('delete','FoodsController@shoppingListDestroy')->name('shopping_list.delete')->middleware('verified');         // 食材のソフトデリート
 Route::get('shopping_complete', 'FoodsController@shoppingComplete')->name('shopping_complete');
 
-
-Route::get('youtube', 'YoutubeController@index');
+// お問い合わせ画面
+Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::post('/contact_send', 'PagesController@contact_send')->name('contact_send');
 
 
