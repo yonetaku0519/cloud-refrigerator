@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5|^8.0",
         "fideloper/proxy": "^4.4",
+        "google/apiclient": "^2.10",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.0"

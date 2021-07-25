@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">クラウド冷蔵庫からのお知らせ</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,10 +13,19 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    ログイン成功してます。
+                    @if ($name !== "なし")
+                        賞味期限の近い「{{ $name }}」でレシピが提案されました！
+                        
+                    @else
+                        <h5>賞味期限が近い食材はありません。</h5><br>
+                        <h5>クラウド冷蔵庫に食材を登録しましょう！</h5>
+                    @endif
+                    
                 </div>
             </div>
+            
+            {{-- youtube動画リスト --}}
+            @include('youtube')
             
             
             @if (count($foods) > 0)         <!-- ここはfoodsは多次元配列である。  -->
@@ -32,18 +41,16 @@
                     </tr>
                   </thead>
                   
-                  @foreach($foods as $foodsLocation)      <!-- ここで保存場所毎の配列にする -->
+                  @foreach($foods as $food)      <!-- ここから要素を取り出す-->
                   
-                      @foreach($foodsLocation as $food)       <!-- ここから要素を取り出す-->
-                        <tbody>
-                            <td scope="row">{{  $food->name  }}</th>
-                            <td scope="row">{{  $food->amount  }}</th>
-                            <td scope="row">{{  $food->freshness_date  }}</th>
-                            <td scope="row">{{  $food->note  }}</th>
-                        </tbody>
-                      @endforeach
+                    <tbody>
+                        <td scope="row">{{  $food->name  }}</th>
+                        <td scope="row">{{  $food->amount  }}</th>
+                        <td scope="row">{{  $food->freshness_date  }}</th>
+                        <td scope="row">{{  $food->note  }}</th>
+                    </tbody>
                 
-                    @endforeach
+                  @endforeach
                 </table>
               
           @endif

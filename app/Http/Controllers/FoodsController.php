@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Vender\CallYoutubeApi;
 
 use App\Food;
 use App\User;
@@ -21,14 +22,39 @@ class FoodsController extends Controller
             $user = \Auth::user();
             // Storingsテーブル情報の取得
             $storings = Storing::all();
-    
-            foreach($storings as $storing) {
-                $foods[$storing->id] = $user->foodstuff($storing->id);
+            // 賞味期限が2日後までの食材の取得
+            $foods = $user->foodAlert();
+            // dd(count($foods));
+            if(count($foods) > 0) {
+                $num = random_int(0,count($foods) - 1);     // 賞味期限が2日後までの食材がない場合落ちるので、バリデーションしています    
+                
+                // レシピ検索
+                $t = new CallYoutubeApi();
+                $serachList = $t->serachList($foods[$num]->name." レシピ");
+                // $array[] = array();
+                foreach ($serachList as $result) {
+                  $videosList = $t->videosList($result->id->videoId);
+                  $embed = "https://www.youtube.com/embed/" . $videosList[0]['id'];
+                  $array = array($embed, $videosList[0]['snippet'],$videosList[0]['statistics']);
+                }
+                // dd([$array],$foods[$num]->name);
+                $data = [
+                    'user' => $user,
+                    'foods' => $foods,
+                    'movie' => ['youtube' => $array],
+                    'name' => $foods[$num]->name,
+                ];
+                // dd($data);
+            } else {
+                $array[] = array();             // 賞味期限が近いものがなければ、youtubeを空で返す。
+                $data = [
+                    'user' => $user,
+                    'foods' => $foods,
+                    'movie' => ['youtube' => $array],
+                    'name' => "なし",
+                ];
+                
             }
-            $data = [
-                'user' => $user,
-                'foods' => $foods,
-            ];
             // デバック用
             //  dd($data);
         }

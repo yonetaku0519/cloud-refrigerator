@@ -35,12 +35,12 @@
                   
                   @foreach($foods as $food)      <!-- ここで保存場所毎の配列にする -->
                       
-                      <tbody>
-                        <td scope="row"><a href="{{ route('food.updateEdit', ['id' => $food->id]) }}">{{  $food->name  }}</th>
-                        <td scope="row">{{  $food->amount  }}</th>
-                        <td scope="row">{{  $food->freshness_date  }}</th>
-                        <td scope="row">{{  $food->note  }}</th>
-                      </tbody>
+                    <tbody>
+                      <td scope="row"><a href="{{ route('food.updateEdit', ['id' => $food->id]) }}">{{  $food->name  }}</th>
+                      <td scope="row">{{  $food->amount  }}</th>
+                      <td scope="row">{{  $food->freshness_date  }}</th>
+                      <td scope="row">{{  $food->note  }}</th>
+                    </tbody>
                       
                   @endforeach
                   

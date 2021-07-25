@@ -35,7 +35,8 @@ Route::post('hogehoge','FoodsController@foodRegister')->name('food.register')->m
 Route::get('/update/{id}','FoodsController@updateTable')->name('food.update')->middleware('verified');
 Route::get('/updateEdit/{id}','FoodsController@updateEdit')->name('food.updateEdit')->middleware('verified');               // Updateするためのフォームにデータを投げる
 Route::post('hoge','FoodsController@updateRun')->name('food.updateRun')->middleware('verified');;              // データを更新して、冷蔵庫の更新タブに戻る
-Route::post('delete','FoodsController@destroy')->name('food.delete')->middleware('verified');         // 食材のソフトデリート
+
+Route::post('deleteFood','FoodsController@destroy')->name('food.delete')->middleware('verified');         // 食材のソフトデリート
 
 // 買い物リスト画面
 Route::get('register_shopping_list', 'FoodsController@showShoppingList')->name('shopping_list');
@@ -49,6 +50,6 @@ Route::post('delete','FoodsController@shoppingListDestroy')->name('shopping_list
 Route::get('shopping_complete', 'FoodsController@shoppingComplete')->name('shopping_complete');
 
 
-
+Route::get('youtube', 'YoutubeController@index');
 
 

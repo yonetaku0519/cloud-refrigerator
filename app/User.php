@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\CustomResetPassword;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class User extends Authenticatable  implements MustVerifyEmail
 {
@@ -81,6 +82,22 @@ class User extends Authenticatable  implements MustVerifyEmail
         
     }
     
+    public function foodAlert() {                        // 賞味期限が近い食材を取得
+        
+        $date=Carbon::today()->addDays(2);              // 2日後を所得
+        
+        $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->where('status',1)                     // 冷蔵庫に登録済を表す。
+                    ->whereDate('freshness_date', '<=', $date)
+                    ->orderBy('freshness_date', 'ASC')
+                    ->get();                             // ここで受け取っている
+                    // dd($result);
+         return $result;
+        
+    }
+    
+
     // Foodテーブルから保存場所毎のデータを配列として返す。
     public function foodOnDesk() {                        // storingsテーブルのidを引数として持っている
         
@@ -88,7 +105,7 @@ class User extends Authenticatable  implements MustVerifyEmail
                     ->whereNull('deleted_at')
                     ->where('status',1)                     // 冷蔵庫に登録済を表す。
                     ->orderBy('freshness_date', 'ASC')
-                    ->paginate(10);                                // ここで受け取っている
+                    ->get();                                // ここで受け取っている
                     
                     
          return $result;

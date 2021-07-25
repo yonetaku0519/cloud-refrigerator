@@ -24,11 +24,21 @@
                     <td scope="row">{{  $food->amount  }}</th>
                     <td scope="row">{{  $food->freshness_date  }}</th>
                     <td scope="row">{{  $food->note  }}</th>
-                    <td scope="row">{{  $food->storing_id  }}</th>
+                    
+                    @if($food->storing_id === "冷蔵")
+                      <td scope="row" style = "color:#5465ff;">{{  $food->storing_id  }}</th>
+                    
+                    @elseif($food->storing_id === "冷凍")
+                      <td scope="row" style = "color:#00b4d8;">{{  $food->storing_id  }}</th>
+                    
+                    @elseif($food->storing_id === "野菜室")
+                      <td scope="row" style = "color:#39A869;">{{  $food->storing_id  }}</th>
+                    
+                    @endif
+                    
                 </tbody>
               @endforeach
               
-              {{  $foods->links() }}
               
           </table>
           
