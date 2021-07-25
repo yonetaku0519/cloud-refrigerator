@@ -20,8 +20,8 @@ class CreateFoodsTable extends Migration
             $table->unsignedBigInteger('storing_id');
             $table->string('name');
             $table->string('amount');
-            $table->date('freshness_date')->nullable()->change();
-            $table->string('note')->nullable()->change();
+            $table->date('freshness_date')->nullable();
+            $table->string('note')->nullable();
             $table->integer('status');
             $table->timestamps();
             $table->softDeletes();
