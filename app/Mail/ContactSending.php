@@ -31,5 +31,6 @@ class ContactSending extends Mailable
     {
         return $this->view('pages.contact')->with(['data' => $this->data])
                     ->subject('お問い合わせを受け付けました');
+                    
     }
 }
