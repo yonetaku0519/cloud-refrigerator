@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="keywords" content="ポートフォリオ、未経験、エンジニア、転職、クラウド冷蔵庫、個人向け在庫管理システム">
+        <meta name="description" content="自宅の冷蔵庫をクラウド上に作成し、いつでもどこでも確認することができるシステムです。コロナ禍における外出自粛の影響で、1度の買い物で多くの食材をまとめ買いをする機会が増えました。クラウド冷蔵庫を活用することで、食品の無駄なく買い忘れも防ぐことができます。">
+        
         <title>クラウド冷蔵庫</title>
         
         <!-- Fonts -->
@@ -64,7 +66,7 @@
               
               <div class = "catch-copy">
                   <div class = "catch-text">
-                      クラウド上で自宅の冷蔵庫を管理するアプリ
+                      <h2>クラウド上で自宅の冷蔵庫を管理するアプリ</h2>
                   </div>
                   
                   <div class="text-center">
@@ -90,7 +92,7 @@
               
               
                 <div class = "worries-title text-center">
-                  <i class="fas fa-shopping-cart"></i>　買い物中にこんな悩みはありませんか？
+                  <h2><i class="fas fa-shopping-cart"></i>　買い物中にこんな悩みはありませんか？</h2>
                 </div>
               
               
@@ -101,9 +103,9 @@
                     </div>
                     <div class="col-xs-12 col-md-6 worries-area">
                         <ul class="worries-list">
-                            <li class="worries-item fadein-left active"><i class="fas fa-egg"></i>　卵残り何個だったっけ？</li>
-                            <li class="worries-item fadein-left active"><i class="fas fa-hamburger"></i>　家にある食材で料理できるだろうか？</li>
-                            <li class="worries-item fadein-left active"><i class="fas fa-shopping-basket"></i>　そもそも何を買うんだっけ？</li>
+                            <h3><li class="worries-item fadein-left active"><i class="fas fa-egg"></i>　卵残り何個だったっけ？</li></h3>
+                            <h3><li class="worries-item fadein-left active"><i class="fas fa-hamburger"></i>　家にある食材で料理できるだろうか？</li></h3>
+                            <h3><li class="worries-item fadein-left active"><i class="fas fa-shopping-basket"></i>　そもそも何を買うんだっけ？</li></h3>
                         </ul>
                     </div>
                   
