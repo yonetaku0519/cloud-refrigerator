@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <meta name="google-site-verification" content="uvYllwMsA5MQLJjBRs--6wRjO_LRFrWeAA4AnnANR8c" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="ポートフォリオ、未経験、エンジニア、転職、クラウド冷蔵庫、個人向け在庫管理システム">
@@ -18,6 +19,7 @@
     
     </head>
     <body>
+        
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
