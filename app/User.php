@@ -62,6 +62,14 @@ class User extends Authenticatable  implements MustVerifyEmail
         
     }
     
+    // Movieテーブルとの関係
+    public function movies() {
+        
+        return $this->hasMany(Movie::class);
+        
+    }
+    
+    
     public function loadRerationshipCounts() {
         
         $this->loadCount(['foods']);
@@ -160,7 +168,33 @@ class User extends Authenticatable  implements MustVerifyEmail
         
     }
     
+    public function freshnessDateNearAllFood() {
+        
+        $date=Carbon::today()->addDays(2);
+        
+        $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->whereDate('freshness_date', '<=', $date)
+                    ->where('status',1)
+                    ->orderBy('user_id', 'ASC')
+                    ->get();
+                    
+        return $result;      
+                    
+    }
     
+    public function freshnessDateNear($userId) {
+        $date=Carbon::today()->addDays(2);
+        
+        $result = $this->foods()
+                    ->whereNull('deleted_at')
+                    ->whereDate('freshness_date', '<=', $date)
+                    ->where('status',1)
+                    ->where('user_id', $userId)
+                    ->get();
+        
+        return $result;
+    }
     
     
     
