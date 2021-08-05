@@ -24,33 +24,26 @@ class FoodsController extends Controller
             $storings = Storing::all();
             // 賞味期限が2日後までの食材の取得
             $foods = $user->foodAlert();
-            // dd(count($foods));
-            if(count($foods) > 0) {
-                $num = random_int(0,count($foods) - 1);     // 賞味期限が2日後までの食材がない場合落ちるので、バリデーションしています    
-                
-                // レシピ検索
-                $t = new CallYoutubeApi();
-                $serachList = $t->serachList($foods[$num]->name." レシピ");
-                // $array[] = array();
-                foreach ($serachList as $result) {
-                  $videosList = $t->videosList($result->id->videoId);
-                  $embed = "https://www.youtube.com/embed/" . $videosList[0]['id'];
-                  $array = array($embed, $videosList[0]['snippet'],$videosList[0]['statistics']);
-                }
-                // dd([$array],$foods[$num]->name);
+            // youtube動画を取得
+            $movie = $user->youtubeSelect($user->id);
+            
+            // 初期ログインや賞味期限が近い食材がない場合は落ちるので、バリデーション
+            if(count($movie) > 0) {
                 $data = [
                     'user' => $user,
                     'foods' => $foods,
-                    'movie' => ['youtube' => $array],
-                    'name' => $foods[$num]->name,
+                    'url' => $movie[0]->url,
+                    'title' => $movie[0]->title,
+                    'name' => "あり",
                 ];
                 // dd($data);
             } else {
-                $array[] = array();             // 賞味期限が近いものがなければ、youtubeを空で返す。
+                // 動画が存在しない場合
                 $data = [
                     'user' => $user,
                     'foods' => $foods,
-                    'movie' => ['youtube' => $array],
+                    'url' => "ない",
+                    'title' => "ない",
                     'name' => "なし",
                 ];
                 

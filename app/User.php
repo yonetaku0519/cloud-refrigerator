@@ -197,7 +197,14 @@ class User extends Authenticatable  implements MustVerifyEmail
     }
     
     
-    
+    public function youtubeSelect($userId) {
+        
+        $result = $this->movies()
+                    ->where('user_id',$userId)
+                    ->get();
+        
+        return $result;
+    }
     
     
     

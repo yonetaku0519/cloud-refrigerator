@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">クラウド冷蔵庫からのお知らせ</div>
+                <div class="card-header">クラウド冷蔵庫からレシピのご提案</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,18 +14,17 @@
                         </div>
                     @endif
                     @if ($name !== "なし")
-                        賞味期限の近い「{{ $name }}」でレシピが提案されました！
+                        {{-- youtube動画リスト --}}
+                        @include('youtube')
                         
                     @else
                         <h5>賞味期限が近い食材はありません。</h5><br>
-                        <h5>クラウド冷蔵庫に食材を登録しましょう！</h5>
+                        <h5>クラウド冷蔵庫に食材を登録しましょう！</h5><br>
+                        <h5>（おすすめレシピはAM0時にリセットされます。）</h5>
                     @endif
                     
                 </div>
             </div>
-            
-            {{-- youtube動画リスト --}}
-            @include('youtube')
             
             
             @if (count($foods) > 0)         <!-- ここはfoodsは多次元配列である。  -->
