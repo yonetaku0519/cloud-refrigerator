@@ -1,6 +1,6 @@
 <footer>
 　　<div id="footer_navi">
-        <ul class = "footer_ul" style = "">
+        <ul class>
             <li><a href="{{ url('/') }}">TOP</a></li>
             <li><a href="{{ route('login') }}">ログイン</a></li>
             <li><a href="{{ route('register') }}">ユーザー登録</a></li>
