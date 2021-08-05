@@ -8,6 +8,13 @@ footer #footer_navi {
     padding : 10px 0;
 }
 
+footer #footer_navi ul {
+    text-align : center;
+    margin-left : 8px;
+    padding-left : 8px;
+    font-size : smaller;
+}
+
 footer #footer_navi li {
     display : inline;
     border-left : solid 1px #333;
