@@ -92,11 +92,6 @@ class YoutubeApiBatch extends Command
         
         }
         
-        var_dump($userId);
-        var_dump($foodName);
-        var_dump($movieUrl);
-        var_dump($title);
-        
         // ここからMovieテーブルに登録するコード
         // Delete-Insertを行う
         $movieYesterday = Movie::all();
