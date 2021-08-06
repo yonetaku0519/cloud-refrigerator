@@ -58,21 +58,21 @@
                   
                   {!! Form::open(['action' => 'FoodsController@shoppingListRegister']) !!}
                     <div class="form-group row">
-                        <label for="name" class = "col-sm-3">{!! Form::label('name','食材名') !!}</label>
-                        <div class="col-sm-9">
+                        <label for="name" class = "col-sm-4">{!! Form::label('name','食材名') !!}</label>
+                        <div class="col-sm-8">
                           {{ Form::text('name', null,['class' =>'form-control']) }}
                         </div> 
-                        <label for="amount" class = "col-sm-3">{!! Form::label('amount','量') !!}</label>
-                        <div class="col-sm-9">
+                        <label for="amount" class = "col-sm-4">{!! Form::label('amount','量') !!}</label>
+                        <div class="col-sm-8">
                             {{ Form::text('amount', null,['class' =>'form-control']) }}
                         </div>  
-                        <label for="note" class = "col-sm-3">{!! Form::label('note','備考') !!}</label>
-                        <div class="col-sm-9">
+                        <label for="note" class = "col-sm-4">{!! Form::label('note','備考') !!}</label>
+                        <div class="col-sm-8">
                             {{ Form::text('note', null,['class' =>'form-control']) }}
                         </div>
-                        <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存予定場所') !!}</label>
-                        <div class="col-sm-9">
-                            {{ Form::select('storing_id',['1' => '冷蔵', '2' => '冷凍', '3' => '野菜室'],['class' =>'form-control']) }}
+                        <label for="storing_id" class = "col-sm-4">{!! Form::label('storing_id','保存予定場所') !!}</label>
+                        <div class="col-sm-8">
+                            {{ Form::select('storing_id',['1' => '冷蔵室', '2' => '冷凍室', '3' => '野菜室'],['class' =>'form-control']) }}
                             
                         </div>
                         {!! Form::submit('買い物リストに追加', ['class' => 'btn btn-primary btn-lg','style' => 'display: block;margin: 10px 10px 0 auto;']) !!}

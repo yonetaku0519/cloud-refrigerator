@@ -47,7 +47,7 @@
                         <tbody>
                             <td scope="row">{{  $food->name  }}</th>
                             <td scope="row">{{  $food->amount  }}</th>
-                            <td scope="row">{{  $food->freshness_date  }}</th>
+                            <td scope="row" style="color:red;">{{  $food->freshness_date  }}</th>
                             <td scope="row">{{  $food->note  }}</th>
                         </tbody>
                     

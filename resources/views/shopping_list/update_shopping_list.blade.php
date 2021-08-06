@@ -44,7 +44,7 @@
                         <div class = "form-inline">
                             <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存予定場所') !!}</label>
                             <div class="col-sm-9">
-                                {{ Form::select('storing_id',['1' => '冷蔵', '2' => '冷凍', '3' => '野菜室'],$storing_id,['class' =>'form-control']) }}
+                                {{ Form::select('storing_id',['1' => '冷蔵室', '2' => '冷凍室', '3' => '野菜室'],$storing_id,['class' =>'form-control']) }}
                             </div>
                         </div>
                         <div class = "form-inline">

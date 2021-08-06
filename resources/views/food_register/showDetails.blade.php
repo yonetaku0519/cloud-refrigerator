@@ -88,7 +88,7 @@
                         </div>
                         <label for="storing_id" class = "col-sm-3">{!! Form::label('storing_id','保存場所') !!}</label>
                         <div class="col-sm-9">
-                            {{ Form::select('storing_id',['1' => '冷蔵', '2' => '冷凍', '3' => '野菜室'],['class' =>'form-control']) }}
+                            {{ Form::select('storing_id',['1' => '冷蔵室', '2' => '冷凍室', '3' => '野菜室'],['class' =>'form-control']) }}
                         </div>
                         {!! Form::submit('冷蔵庫に追加', ['class' => 'btn btn-primary btn-lg','style' => 'display: block;margin: 10px 10px 0 auto;']) !!}
                         {!! Form::close() !!}
