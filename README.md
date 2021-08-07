@@ -1,54 +1,50 @@
 最初にロゴ・アイキャッチ画像などを表示
 
-# リポジトリ名
+# Cloud-Refrigerator
 
-概要を記述する
+個人向け在庫管理Webアプリケーション「クラウド冷蔵庫」
 
 
 ## デモ
 
-![デモ](https://image-url.gif)
+![](https://github.com/yonetaku0519/cloud-refrigerator/issues/1#issue-963151817)
 
 
-## 使い方
+## 使用技術
 
-DEMOの実行方法など、"Webアプリ"の基本的な使い方を説明
+◆フロントエンド
+HTML/CSS
+Bootstrap
 
-1. 使い方
-2. 使い方
-3. 使い方
+◆バックエンド
+PHP : 7.3.27
+Laravel : 6.20.29 
+Youtube API
 
+◆開発環境
+Mysql : 14.14
+Apache : 2.4.29 (Ubuntu)
+AWS : EC2, IAM
+Composer : 2.0.13
 
-## 環境
-
-* 要件
-* 要件
-* 要件
-
-
-## 注意事項
-
-注意点などがあれば書く
-
-
-## 文責
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
-* [@twitter_username](https://twitter.com/twitter_username)
+◆インフラ
+サーバー : Heroku 
 
 
-## ライセンス
 
-ライセンスを明示する
+## コンセプト
 
-"リポジトリ名" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+　コロナ禍における買い物事情において、まとめ買いをする傾向があります。冷蔵庫にあるものを間違えて買ってしまったり、不要なものまで買ってしまった経験があるのではないでしょうか？
+　クラウド冷蔵庫は、自宅の冷蔵庫の分身をインターネット上に作成することで「いつでも」・「どこでも」冷蔵庫の中を確認することができます！
+　クラウド冷蔵庫を活用することで、食材の買い忘れやロスを低減し、困難な世の中をちょっと便利にしませんか？
 
 
-## 参考文献
+## 作成者情報
 
-参考にした情報源（サイト・論文）などの情報、リンク
+* 作成者 : yonetaku
+* 所属 : 専業主夫
+* E-mail : yonetaku0519@gmail.com
+
+
+
 
