@@ -7,7 +7,7 @@
 
 ## デモ
 
-![Welcome_page](https://github.com/yonetaku0519/cloud-refrigerator/issues/1#issue-963151817)
+![Welcome_page](https://user-images.githubusercontent.com/83192846/128587834-d417bbb3-3498-41db-849d-428c5e4104ad.gif)
 
 
 ## 使用技術
