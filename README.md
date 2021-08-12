@@ -1,4 +1,3 @@
-最初にロゴ・アイキャッチ画像などを表示
 
 # Cloud-Refrigerator
 
